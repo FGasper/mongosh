@@ -59,7 +59,7 @@ case "$arch" in
 esac
 
 if [ "$os" = "linux" ]; then
-    if ldd $(which curl) | grep -q libssl.so.3 ; then
+    if ldd "$(which curl)" | grep -q libssl.so.3 ; then
         openssl_query='and .sharedOpenssl == "openssl3"'
     else
         openssl_query='and (has("sharedOpenssl") | not)'
